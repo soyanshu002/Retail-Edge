@@ -1,0 +1,18 @@
+# Snapdragon Device Deployment Configuration
+
+device:
+  target: "Snapdragon"                     # Target platform
+  os: "android"                            # Supported: android, linux
+  sdk_version: "SNPE-1.68.0"               # Example SNPE SDK version
+  runtime: "npu"                           # Options: cpu, gpu, dsp, npu
+  batch_size: 1                            # Runtime batch size
+  threads: 4                               # Number of CPU threads (if used)
+
+paths:
+  model: "models/dlc/yolov5_quantized.dlc" # Path to final DLC model
+  input: "data/images/sample.jpg"          # Example input image
+  output: "models/results/output.json"     # Inference results storage
+
+logging:
+  level: "INFO"                            # Options: DEBUG, INFO, WARNING, ERROR
+  save_perf_profile: true                  # Save performance profiling report

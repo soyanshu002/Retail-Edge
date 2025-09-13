@@ -1,0 +1,14 @@
+# Quantization Calibration Configuration
+
+input_dlc: "models/dlc/yolov5.dlc"          # Path to the original FP32 DLC model
+output_dlc: "models/dlc/yolov5_quantized.dlc" # Path to save quantized model
+
+quantization:
+  type: "int8"                             # Supported: int8, fp16
+  calibration_list: "data/calib_list.txt"  # List of calibration images
+  enable_bias_correction: true             # Helps retain accuracy
+  per_channel_quantization: true           # Enable per-channel quantization
+
+validation:
+  dataset: "data/images"                   # Path to validation dataset
+  batch_size: 4                            # Number of images per batch

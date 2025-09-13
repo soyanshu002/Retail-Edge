@@ -1,0 +1,22 @@
++--------------------+       +-----------------+        +----------------+
+|  YOLOv5 TensorFlow | ----> | Export to ONNX  | -----> | Convert to DLC |
+| (SavedModel / .pb) |       | (export_to_onnx)|        | (convert_to_dlc)|
++--------------------+       +-----------------+        +----------------+
+                                                                 |
+                                                                 v
+                                                   +-----------------------+
+                                                   |   Quantization (INT8) |
+                                                   |  (quantize_model.sh)  |
+                                                   +-----------------------+
+                                                                 |
+                                                                 v
+                                                   +-----------------------+
+                                                   |   Benchmark on NPU    |
+                                                   |   (benchmark.sh)      |
+                                                   +-----------------------+
+                                                                 |
+                                                                 v
+                                                   +-----------------------+
+                                                   |   Deploy Inference    |
+                                                   |   (deploy.py + src/)  |
+                                                   +-----------------------+
